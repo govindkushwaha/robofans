@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Styles from '../Cards/Cards.module.css';
+import Modals from "../Modals/Modal";
 
 function Cards() {
     const [error, setError] = useState(null);
@@ -25,8 +26,10 @@ function Cards() {
     else {
         return (
             <>
-                <button children={Styles.popup}>Open Popup</button>
+                <div className={Styles.btn}>
+                <Modals/>
                 <input className={Styles.inpt} onChange={e =>{setSearchItem(e.target.value)}} type="search" placeholder="Search robots"></input>
+                </div>
                 <div className={Styles.mainDiv}>
                     {items.filter( (val) => {
                         if(searchItem === "" ){
